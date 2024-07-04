@@ -2,13 +2,16 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from links import Links
 from locators import Locators
+import faker
+from faker import Faker
 
+faker = Faker()
 
 class TestLogout:
 
     def test_go_to_profile_page(self, driver):
-        NAME = 'Elina_Mityagina_10_777777'
-        EMAIL = 'Elina_Mityagina_10_777777@ya.ru'
+        NAME = faker.name()
+        EMAIL = faker.email()
         PASSWORD = 'Ab12345678'
         # переход на страницу регистрации пользователя
         driver.get(Links.REGISTRATION_PAGE)

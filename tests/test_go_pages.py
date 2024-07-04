@@ -66,8 +66,8 @@ class TestGoToPage:
         assert '/account' in current_url
 
     def test_go_to_constructor_page_from_profile(self, driver):
-        NAME = 'Elina_Mityagina_10_55555'
-        EMAIL = 'Elina_Mityagina_10_55555@ya.ru'
+        NAME = faker.name()
+        EMAIL = faker.email()
         PASSWORD = 'Ab12345678'
         # переход на страницу регистрации пользователя
         driver.get(Links.REGISTRATION_PAGE)

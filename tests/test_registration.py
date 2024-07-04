@@ -1,14 +1,17 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.by import By
 from locators import Locators
 from links import Links
+import faker
+from faker import Faker
+
+faker = Faker()
 
 class TestRegistration:
 
     def test_registration_successful(self, driver):
-        NAME = 'Elina_Mityagina_10_999999999'
-        EMAIL = 'Elina_Mityagina_10_999999999@ya.ru'
+        NAME = faker.name()
+        EMAIL = faker.email()
         PASSWORD = 'Ab12345678'
 
         # переход на страницу регистрации пользователя
@@ -49,8 +52,9 @@ class TestRegistration:
 
 
     def test_registration_short_password_failed(self, driver):
-        NAME = 'Elina_Mityagina_10_567567'
-        EMAIL = 'Elina_Mityagina_10_567567@ya.ru'
+
+        NAME = faker.name()
+        EMAIL = faker.email()
         PASSWORD = '1#'
 
         # переход на страницу регистрации пользователя

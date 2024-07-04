@@ -2,6 +2,10 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
 from links import Links
+import faker
+from faker import Faker
+
+faker = Faker()
 
 
 class TestLogin:
@@ -52,8 +56,8 @@ class TestLogin:
 
 
     def test_login_success(self, driver):
-        NAME = 'Elina_Mityagina_10_44444'
-        EMAIL = 'Elina_Mityagina_10_44444@ya.ru'
+        NAME = faker.name()
+        EMAIL = faker.email()
         PASSWORD = 'Ab12345678'
         # переход на страницу регистрации пользователя
         driver.get(Links.REGISTRATION_PAGE)
